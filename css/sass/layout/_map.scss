@@ -1,3 +1,11 @@
-div#map {
-    height: 800px;
+main.itineraire_page {
+    display: flex;
+    div.etapes {
+        width: 40%;
+        overflow-y: auto;
+    }
+    div#map {
+        width: 60%;
+        height: 100vh;
+    }
 }
