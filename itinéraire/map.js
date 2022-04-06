@@ -13,9 +13,9 @@ new L.GPX(gpx, { async: true }).on('loaded', function (e) {
     map.fitBounds(e.target.getBounds());
 }).addTo(map);
 
-const url = 'http://20.123.170.132:1337';
+const url = 'http://20.229.68.151:1337';
 
-fetch("http://20.123.170.132:1337/api/itineraires?populate=*")
+fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
     .then(function (res) {
         if (res.ok) {
             return res.json();
