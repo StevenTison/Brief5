@@ -98,7 +98,7 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             let eltImg = document.createElement('img');
             eltDiv.appendChild(eltImg);
             eltImg.classList.add('photo_paysage');
-            eltImg.src = url + article.attributes.photo_paysage.data.attributes.formats.thumbnail.url;
+            eltImg.src = url + article.attributes.photo_paysage.data.attributes.formats.large.url;
 
             let eltDistance = document.createElement('p');
             eltDiv.appendChild(eltDistance);
