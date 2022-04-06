@@ -1,8 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+
 body{
     background-color: red;
 }
@@ -16,6 +12,7 @@ body{
     align-items: center;
     padding-left: 60px;
     padding-right: 60px;
+    box-sizing: border-box;
     .lien{
         display: flex;
         align-items: center;
