@@ -1,0 +1,29 @@
+.swiper {
+    width: 100%;
+  }
+  
+  .swiper-slide {
+    font-family: "Open Sans", sans-serif;
+    background-size: cover;
+    background-position: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+  }
+  
+  .swiper-button-prev:hover {
+    color: #69f0ae;
+    transition: all linear 0.5s;
+  }
+  
+  .swiper-button-next:hover {
+    color: #69f0ae;
+    transition: all linear 0.5s;
+  }
+//   div.swiper-warpper#swiper-warpper-1a7ac87a856d5caa{
+    //   transition-duration: 5ms;
+    
+    // }
