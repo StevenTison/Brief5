@@ -75,9 +75,16 @@
         background: black;
         gap: 20px;
         opacity: 80%;
+        transform: translateX(110%);
+        
     }
     .show-nav .liste {
         width: 100vw;
+        transform: translateX(0%);
+    }
+    .liste{
+        transform: translateX(0%);
+    transition: all .2s ease-in-out;
     }
 
     .active ul {
@@ -98,6 +105,7 @@
         height: 45px;
         border: none;
         background: transparent;
+        transform: translateX(100%);
         cursor: pointer;
     }
 

@@ -7,6 +7,7 @@ main.itineraire_page {
         a.lien_article {
             text-decoration: none;
             article.itineraire {
+                height: 20vh;
                 display: flex;
                 flex-direction: row;
                 padding: 2px 0;
@@ -14,6 +15,7 @@ main.itineraire_page {
                     width: 30%;
                     position: relative;
                     img.photo_paysage {
+                        object-fit: cover;
                         width: 100%;
                         height: 100%;
                     }
