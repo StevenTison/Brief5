@@ -1,5 +1,5 @@
 var map = L.map('map').setView([50.79067, 2.24964], 9);
-L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
     attribution: 'Map data &copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
     maxZoom: 12,
     id: 'mapbox/streets-v11',
@@ -8,8 +8,63 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', 
     accessToken: 'pk.eyJ1Ijoic3RldmVudGlzb24iLCJhIjoiY2wxbHozeDRkMDFuOTNqcWpzNm5iMzhzayJ9.JrDbT9YA_SY9TYbtdoJzhw'
 }).addTo(map);
 
-var gpx = '/coordinate.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(gpx, { async: true }).on('loaded', function (e) {
+var etapeUn = '/coordinate/calais-ardres.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeUn, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeDeux = '/coordinate/ardres-watten.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeDeux, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeTrois = '/coordinate/watten-st-omer.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeTrois, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeQuatre = '/coordinate/st-omer-aire-sur-la-lys.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeQuatre, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeCinq = '/coordinate/aire-sur-la-lys-st-venant.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeCinq, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeSix = '/coordinate/st-venant-bethune.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeSix, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeSept = '/coordinate/bethunes-olhain.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeSept, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeHuit = '/coordinate/olhain-angres.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeHuit, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeNeuf = '/coordinate/angres-lens.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeNeuf, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeDix = '/coordinate/lens-don.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeDix, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeOnze = '/coordinate/don-lille.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeOnze, { async: true }).on('loaded', function (e) {
+    map.fitBounds(e.target.getBounds());
+}).addTo(map);
+
+var etapeDouze = '/coordinate/lille-wattrelos.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(etapeDouze, { async: true }).on('loaded', function (e) {
     map.fitBounds(e.target.getBounds());
 }).addTo(map);
 
