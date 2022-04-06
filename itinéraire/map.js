@@ -27,8 +27,13 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
         let eltEtape = document.querySelector('div.etapes');
 
         for (let article of value.data) {
-            let eltArticle = document.createElement('article')
-            eltEtape.appendChild(eltArticle);
+            let eltLink = document.createElement('a');
+            eltEtape.appendChild(eltLink);
+            eltLink.classList.add('lien_article');
+            eltLink.href = '#';
+
+            let eltArticle = document.createElement('article');
+            eltLink.appendChild(eltArticle);
             eltArticle.classList.add('itineraire')
 
             let eltDiv = document.createElement('div')
@@ -37,6 +42,7 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
 
             let eltImg = document.createElement('img');
             eltDiv.appendChild(eltImg);
+            eltImg.classList.add('photo_paysage');
             eltImg.src = url + article.attributes.photo_paysage.data.attributes.formats.thumbnail.url;
 
             let eltDistance = document.createElement('p');
@@ -66,7 +72,7 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             eltDescription.classList.add('descriptif');
             eltDescription.innerText = article.attributes.description;
         }
-        }
+    }
     )
     .catch(function (err) {
 
