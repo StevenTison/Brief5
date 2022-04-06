@@ -1,16 +1,16 @@
 var map = L.map('map').setView([50.79067, 2.24964], 9);
 L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
     attribution: 'Map data &copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-    maxZoom: 12,
+    maxZoom: 20,
     id: 'mapbox/streets-v11',
     tileSize: 256,
     zoomOffset: 0,
     accessToken: 'pk.eyJ1Ijoic3RldmVudGlzb24iLCJhIjoiY2wxbHozeDRkMDFuOTNqcWpzNm5iMzhzayJ9.JrDbT9YA_SY9TYbtdoJzhw'
 }).addTo(map);
 
-var etapeUn = '/coordinate/calais-ardres.gpx'; // URL to your GPX file or the GPX itself
+var etapeUn = '/coordinate/calais-ardres.gpx' // URL to your GPX file or the GPX itself
 new L.GPX(etapeUn, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
+    map.fitBounds(e.target.getBounds())
 }).addTo(map);
 
 var etapeDeux = '/coordinate/ardres-watten.gpx'; // URL to your GPX file or the GPX itself
@@ -98,7 +98,7 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             let eltImg = document.createElement('img');
             eltDiv.appendChild(eltImg);
             eltImg.classList.add('photo_paysage');
-            eltImg.src = url + article.attributes.photo_paysage.data.attributes.formats.large.url;
+            eltImg.src = url + article.attributes.photo_paysage.data.attributes.formats.medium.url;
 
             let eltDistance = document.createElement('p');
             eltDiv.appendChild(eltDistance);
