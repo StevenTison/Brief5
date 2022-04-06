@@ -55,10 +55,18 @@
 
 
 @media screen and (max-width:800px) {
+    .active{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
 
-    .lien {
+    .lien{
         display: flex;
         flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 50%;
+
     }
 
     .liste {
@@ -84,11 +92,16 @@
     }
     .liste{
         transform: translateX(0%);
-    transition: all .2s ease-in-out;
+        transition: all .4s ease-in-out;
     }
 
     .active ul {
         color: white;
+        padding: 0;
+    }
+
+    .active li{
+        padding: 0;
     }
 
     .liste>a {
@@ -97,15 +110,13 @@
         font-size: 1.6rem;
     }
     .active .burger {
-        margin-right: 10px;
         display: block;
-        position: relative;
         padding: 0;
         width: 45px;
         height: 45px;
         border: none;
         background: transparent;
-        transform: translateX(100%);
+        transform: translateX(0%);
         cursor: pointer;
     }
 
@@ -148,11 +159,10 @@
     .show-nav .bar::after {
         transform: rotate(-45deg);
     }
-
-    .test{
-        display: block;
-        margin-left: 200px;
-        margin-right: 200px;
+    
+    .recherche{
+        margin: 0;
+        padding: 0;
     }
 
 }
