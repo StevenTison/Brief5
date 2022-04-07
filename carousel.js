@@ -1,25 +1,19 @@
 const swiper = new Swiper(".swiper", {
-    // Optional parameters
     direction: "horizontal",
     loop: true,
-    
+    // constante du swiper a l'horizontal pour faire défiler les images
     autoplay: {
         delay: 4600,
         disableOnInteraction: false,
       },
-  
-    // If we need pagination
-    // pagination: {
-    //   el: ".swiper-pagination"
-    // },
-  
-    // Navigation arrows
+    //  l'auto play qui defile les images automatiqument en ms 
+   
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
     },
-  
-    // And if we need scrollbar
+    // les bouton droite et gauche du swiper
+    
     scrollbar: {
       el: ".swiper-scrollbar"
     }
