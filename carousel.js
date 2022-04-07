@@ -1,20 +1,25 @@
-const swiper = new Swiper(".swiper", {
-    direction: "horizontal",
-    loop: true,
-    // constante du swiper a l'horizontal pour faire défiler les images
-    autoplay: {
-        delay: 4600,
-        disableOnInteraction: false,
-      },
-    //  l'auto play qui defile les images automatiqument en ms 
-   
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+var swiper = new Swiper(".mySwiper", {
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + (index + 1) + "</span>";
     },
-    // les bouton droite et gauche du swiper
-    
-    scrollbar: {
-      el: ".swiper-scrollbar"
-    }
-  });
+  },
+  autoplay: {
+    delay: 8000,
+  },
+  loop: true,
+
+  cssMode: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  pagination: {
+    el: ".swiper-pagination"
+  },
+  mousewheel: true,
+  keyboard: true,
+  
+});
