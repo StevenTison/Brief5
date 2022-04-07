@@ -3,43 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/sass/normalize.css">
-    <link rel="stylesheet" href="/css/sass/main.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/sass/normalize.css" />
+    <link rel="stylesheet" href="/css/sass/main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    
     <title>Document</title>
 </head>
 
 <body>
-    <!-- Slider main container -->
-<div class="swiper">
-    <!-- Additional required wrapper -->
+ 
+ <div class="titre_carousel" >
+      <h2>Eurovelo du haut de france</h2>
+      <p>Une expérience unique à la découverte de perles rares</p>
+  </div> 
+  
+  <div class="swiper mySwiper">
+   
     <div class="swiper-wrapper">
-      <!-- Slides -->
 
-      <div class="swiper-slide" style="background-image: url(../img/im1.jpg);">
-        <h2></h2>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../img/im2.jpg);">
-        <h2></h2>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../img/im3.jpg);">
-        <h2></h2>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../img/im4.jpg);">
-        <h2></h2>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../img/im5.jpg);">
-        <h2></h2>
-      </div>
-      <div class="swiper-slide" style="background-image: url(../img/im6.jpg);">
-        <h2></h2>
-      </div>
-      
+     
+      <div class="swiper-slide" style="background: url(../img/im1.jpg) center/cover;"></div>
+      <div class="swiper-slide" style="background: url(../img/im2.jpg) center/cover;"></div>
+      <div class="swiper-slide" style="background: url(../img/im3.jpg) center/cover;"></div>
+      <div class="swiper-slide" style="background: url(../img/im4.jpg) center/cover;"></div>
+      <div class="swiper-slide" style="background: url(../img/im5.jpg) center/cover;"></div>
+      <div class="swiper-slide" style="background: url(../img/im6.jpg) center/cover;"></div>
+
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
+       <div class="swiper-pagination"></div>
+  
+   </div>
   
     <!-- If we need navigation buttons -->
     <div class="swiper-button-prev"></div>
@@ -48,8 +43,10 @@
     <!-- If we need scrollbar -->
     <div class="swiper-scrollbar"></div>
   </div>
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="../carousel.js"></script>
+
 </body>
 
 </html>
