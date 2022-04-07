@@ -8,67 +8,26 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
     accessToken: 'pk.eyJ1Ijoic3RldmVudGlzb24iLCJhIjoiY2wxbHozeDRkMDFuOTNqcWpzNm5iMzhzayJ9.JrDbT9YA_SY9TYbtdoJzhw'
 }).addTo(map);
 
-var etapeUn = '/coordinate/calais-ardres.gpx' // URL to your GPX file or the GPX itself
-new L.GPX(etapeUn, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds())
-}).addTo(map);
+var customOptions =
+{
+    'className': 'popupCustom'
+}
 
-var etapeDeux = '/coordinate/ardres-watten.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeDeux, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
+const url = 'http://20.229.68.151:1337'
 
-var etapeTrois = '/coordinate/watten-st-omer.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeTrois, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
+var liengpx = ['/coordinate/calais-ardres.gpx',
+    '/coordinate/ardres-watten.gpx',
+    '/coordinate/watten-st-omer.gpx',
+    '/coordinate/st-omer-aire-sur-la-lys.gpx',
+    '/coordinate/aire-sur-la-lys-st-venant.gpx',
+    '/coordinate/st-venant-bethune.gpx',
+    '/coordinate/bethunes-olhain.gpx',
+    '/coordinate/olhain-angres.gpx',
+    '/coordinate/angres-lens.gpx',
+    '/coordinate/lens-don.gpx',
+    '/coordinate/don-lille.gpx',
+    '/coordinate/lille-wattrelos.gpx',]
 
-var etapeQuatre = '/coordinate/st-omer-aire-sur-la-lys.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeQuatre, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeCinq = '/coordinate/aire-sur-la-lys-st-venant.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeCinq, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeSix = '/coordinate/st-venant-bethune.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeSix, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeSept = '/coordinate/bethunes-olhain.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeSept, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeHuit = '/coordinate/olhain-angres.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeHuit, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeNeuf = '/coordinate/angres-lens.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeNeuf, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeDix = '/coordinate/lens-don.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeDix, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeOnze = '/coordinate/don-lille.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeOnze, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeDouze = '/coordinate/lille-wattrelos.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeDouze, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-const url = 'http://20.229.68.151:1337';
 
 fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
     .then(function (res) {
@@ -77,21 +36,60 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
         }
     })
     .then(function (value) {
-        console.log(value);
+
+        value.data.sort(function (a, b) {
+            return a.id - b.id;
+        });
+
+        let i = 0;
+        let mapEtape = [];
+        let popup = [];
+
+        for (let etape of value.data) {
+            popup[i] = L.popup(customOptions);
+            mapEtape[i] = new L.GPX(liengpx[i], {
+                polyline_options: {
+                    color: '#00246B',
+                    weight: 5,
+                    lineCap: 'round'
+                }
+            }).on('mouseover', function (e) {
+                this.setStyle({
+                    color: '#e5b9d5'
+                })
+                popup[i - 1]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + etape.attributes.titre.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#00246B'
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).addTo(map);
+            i++;
+            
+        
+        }
 
         let eltEtape = document.querySelector('div.etapes');
 
-        for (let article of value.data) {
+        let n = 0;
+        for (let article of value.data) { console.log(mapEtape[n]);
             let eltLink = document.createElement('a');
             eltEtape.appendChild(eltLink);
-            eltLink.classList.add('lien_article');
+            eltLink.classList.add('lien_article' + n);
             eltLink.href = '#';
+
+            
 
             let eltArticle = document.createElement('article');
             eltLink.appendChild(eltArticle);
-            eltArticle.classList.add('itineraire')
+            eltArticle.classList.add('itineraire');
 
-            let eltDiv = document.createElement('div')
+            let eltDiv = document.createElement('div');
             eltArticle.appendChild(eltDiv);
             eltDiv.classList.add('box_photo');
 
@@ -126,9 +124,44 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             eltDivDeux.appendChild(eltDescription);
             eltDescription.classList.add('descriptif');
             eltDescription.innerText = article.attributes.description;
+
+            eltLink.addEventListener('mouseover', () => {
+                mapEtape[n].setStyle({
+                  color: 'yellow'
+                });
+              });
+              eltLink.addEventListener('mouseout', () => {
+                mapEtape[n].setStyle({
+                  color: 'orange'
+                });
+              });
+
+            n++;
         }
     }
     )
     .catch(function (err) {
 
     });
+/*
+for (let gpxetape of liengpx) {
+    new L.GPX(gpxetape, {
+        polyline_options: {
+            color: '#E3A7C8',
+            opacity: 0.85,
+            weight: 4,
+            lineCap: 'round'
+        }
+    }).on('mouseover', function () {
+        this.setStyle({
+            color: 'red'
+        });
+    }).on('mouseout', function () {
+        map.closePopup();
+        this.setStyle({
+            color: '#E3A7C8'
+        });
+    }).on('click', function () {
+    }).addTo(map);
+};
+*/
