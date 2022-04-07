@@ -9,7 +9,7 @@
     padding-left: 30px;
     padding-right: 30px;
     box-sizing: border-box;
-    box-shadow: 3px 3px 3px;
+    box-shadow: 3px 3px 10px;
 
     .lien {
         display: flex;
@@ -26,7 +26,7 @@
     .logo2{
         margin: 10%;
         height: 10mm;
-        background-color: #003399;
+        background:linear-gradient(#00246b,#003399);
     }
     
     .les_logo{
