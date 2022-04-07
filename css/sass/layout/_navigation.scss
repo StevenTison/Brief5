@@ -6,17 +6,30 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
     box-sizing: border-box;
 
     .lien {
         display: flex;
         align-items: center;
+        width: 100%;
+        margin-right: 30px;
     }
 
     .logo {
         width: 50px;
+    }
+
+    .logo2{
+        margin: 10%;
+        height: 10mm;
+        background-color: #003399;
+    }
+    
+    .les_logo{
+        display: flex;
+        align-items: center;
     }
 
     ul {
@@ -41,7 +54,7 @@
         color: #00B9CA;
     }
 
-    .recherche {
+        .recherche {
         width: 30px;
         height: 30px;
     }
@@ -57,16 +70,18 @@
 @media screen and (max-width:800px) {
     .active{
         display: flex;
-        justify-content: space-around;
         width: 100%;
     }
 
     .lien{
         display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        width: 43%;
+        justify-content: center;
+        width: 100%;
 
+    }
+
+    .les_logo{
+        margin-left: 50px;
     }
 
     .liste {
@@ -161,8 +176,7 @@
     }
     
     .recherche{
-        margin: 0;
-        padding: 0;
+        margin-right: 30px;
     }
 
 }
