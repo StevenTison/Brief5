@@ -28,8 +28,7 @@ var liengpx = ['/coordinate/calais-ardres.gpx',
     '/coordinate/angres-lens.gpx',
     '/coordinate/lens-don.gpx',
     '/coordinate/don-lille.gpx',
-    '/coordinate/lille-wattrelos.gpx',]
-
+    '/coordinate/lille-wattrelos.gpx',];
 
 fetch("http://20.107.25.97:1337/api/itineraires?populate=*")
     .then(function (res) {
@@ -81,13 +80,16 @@ fetch("http://20.107.25.97:1337/api/itineraires?populate=*")
             i++;
         }
 
+        let d = 1;
         let eltEtape = document.querySelector('div.etapes');
 
         for (let article of value.data) {
             let eltLink = document.createElement('a');
             eltEtape.appendChild(eltLink);
             eltLink.classList.add('lien_article');
-            eltLink.href = '#';
+            eltLink.href = "#";
+
+            d++;
 
             let eltArticle = document.createElement('article');
             eltLink.appendChild(eltArticle);
@@ -139,7 +141,6 @@ fetch("http://20.107.25.97:1337/api/itineraires?populate=*")
                     color: '#e5b9d5'
                 });
             });
-            
         }
     }
     )
