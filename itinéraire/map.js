@@ -139,10 +139,7 @@ fetch("http://20.107.25.97:1337/api/itineraires?populate=*")
                     color: '#e5b9d5'
                 });
             });
-            popup[article.id - 1]
-                    .setLatLng(e.latlng)
-                    .setContent("<h3>" + etape.attributes.titre.toString() + "</h3>")
-                    .openOn(map);
+            
         }
     }
     )
