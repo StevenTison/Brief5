@@ -13,7 +13,9 @@ var customOptions =
     'className': 'popupCustom'
 }
 
-const url = 'http://20.229.68.151:1337'
+const url = 'http://20.107.25.97:1337'
+const api = '/api/itineraires/'
+
 
 var liengpx = ['/coordinate/calais-ardres.gpx',
     '/coordinate/ardres-watten.gpx',
@@ -29,7 +31,7 @@ var liengpx = ['/coordinate/calais-ardres.gpx',
     '/coordinate/lille-wattrelos.gpx',]
 
 
-fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
+fetch("http://20.107.25.97:1337/api/itineraires?populate=*")
     .then(function (res) {
         if (res.ok) {
             return res.json();
@@ -41,6 +43,13 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             return a.id - b.id;
         });
 
+        let n = 1
+
+        for (let modif of value.data) {
+            modif.id = n;
+            n++;
+        }
+
         let i = 0;
         let mapEtape = [];
         let popup = [];
@@ -49,13 +58,13 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             popup[i] = L.popup(customOptions);
             mapEtape[i] = new L.GPX(liengpx[i], {
                 polyline_options: {
-                    color: '#00246B',
-                    weight: 5,
+                    color: '#e5b9d5',
+                    weight: 8,
                     lineCap: 'round'
                 }
             }).on('mouseover', function (e) {
                 this.setStyle({
-                    color: '#e5b9d5'
+                    color: '#00246B'
                 })
                 popup[i - 1]
                     .setLatLng(e.latlng)
@@ -64,26 +73,21 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             }).on('mouseout', function (e) {
                 map.closePopup();
                 this.setStyle({
-                    color: '#00246B'
+                    color: '#e5b9d5'
                 })
             }).on('loaded', function (e) {
                 map.fitBounds(e.target.getBounds());
             }).addTo(map);
             i++;
-            
-        
         }
 
         let eltEtape = document.querySelector('div.etapes');
 
-        let n = 0;
-        for (let article of value.data) { console.log(mapEtape[n]);
+        for (let article of value.data) {
             let eltLink = document.createElement('a');
             eltEtape.appendChild(eltLink);
-            eltLink.classList.add('lien_article' + n);
+            eltLink.classList.add('lien_article');
             eltLink.href = '#';
-
-            
 
             let eltArticle = document.createElement('article');
             eltLink.appendChild(eltArticle);
@@ -126,42 +130,22 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             eltDescription.innerText = article.attributes.description;
 
             eltLink.addEventListener('mouseover', () => {
-                mapEtape[n].setStyle({
-                  color: 'yellow'
+                mapEtape[article.id - 1].setStyle({
+                    color: '#00246B'
                 });
-              });
-              eltLink.addEventListener('mouseout', () => {
-                mapEtape[n].setStyle({
-                  color: 'orange'
+            });
+            eltLink.addEventListener('mouseout', () => {
+                mapEtape[article.id - 1].setStyle({
+                    color: '#e5b9d5'
                 });
-              });
-
-            n++;
+            });
+            popup[article.id - 1]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + etape.attributes.titre.toString() + "</h3>")
+                    .openOn(map);
         }
     }
     )
     .catch(function (err) {
 
     });
-/*
-for (let gpxetape of liengpx) {
-    new L.GPX(gpxetape, {
-        polyline_options: {
-            color: '#E3A7C8',
-            opacity: 0.85,
-            weight: 4,
-            lineCap: 'round'
-        }
-    }).on('mouseover', function () {
-        this.setStyle({
-            color: 'red'
-        });
-    }).on('mouseout', function () {
-        map.closePopup();
-        this.setStyle({
-            color: '#E3A7C8'
-        });
-    }).on('click', function () {
-    }).addTo(map);
-};
-*/
