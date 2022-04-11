@@ -13,7 +13,7 @@ var customOptions =
     'className': 'popupCustom'
 }
 
-const url = 'http://20.107.25.97:1337'
+const url = 'http://51.137.57.127:1337'
 const api = '/api/itineraires/'
 
 
@@ -30,7 +30,7 @@ var liengpx = ['/coordinate/calais-ardres.gpx',
     '/coordinate/don-lille.gpx',
     '/coordinate/lille-wattrelos.gpx',];
 
-fetch("http://20.107.25.97:1337/api/itineraires?populate=*")
+fetch("http://51.137.57.127:1337/api/itineraires?populate=*")
     .then(function (res) {
         if (res.ok) {
             return res.json();
