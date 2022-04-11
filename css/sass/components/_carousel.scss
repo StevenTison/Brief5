@@ -6,6 +6,7 @@
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   height: 95vh;
 
+
   .titre_carousel {
     position: absolute;
     z-index: 2;
@@ -24,7 +25,7 @@
     white-space: pre;
     // background-color: rgba(0, 0, 0, 0.5);
     margin-bottom: -147px;
-    // -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 3px rgba(0, 0, 0, 0.3);
 
     .t{
       margin-bottom: -170px;
@@ -80,4 +81,7 @@
     background: #5a6bff;
   }
 
+}
+.swiper-wrapper {
+  height : 100% ;width : 100% ;
 }
