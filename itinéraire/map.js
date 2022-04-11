@@ -76,6 +76,9 @@ fetch("http://51.137.57.127:1337/api/itineraires?populate=*")
                 })
             }).on('loaded', function (e) {
                 map.fitBounds(e.target.getBounds());
+            }).on('click', function (e) {
+                document.location.href = 'map.html?detail=' + i;
+                console.log(i);
             }).addTo(map);
             i++;
         }
