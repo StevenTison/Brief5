@@ -2,28 +2,51 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/sass/normalize.css" />
-    <link rel="stylesheet" href="/css/sass/main.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/sass/normalize.css" />
+  <link rel="stylesheet" href="/css/sass/main.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+  <title>Document</title>
 </head>
 
 <body>
- 
- <div class="titre_carousel" >
-      <h2>Eurovelo du haut de france</h2>
-      <p>Une expérience unique à la découverte de perles rares</p>
-  </div> 
-  
+
+  <nav class="active">
+    <div class="lien">
+        <button class="burger">
+            <span class="bar"></span>  
+          </button> 
+    <div class="les_logo">
+    <img class="logo" src="img/logo_nav.png" alt="logo">
+    <img class="logo2" src="img/eurovelo_logo.svg" alt="logo">
+    </div>
+    <ul class="liste">
+        <li><a href="">ACCEUIL</a></li>
+        <li><a href="">L'ITINÉRAIRE</a></li>
+        <li><a href="">NEWS</a></li>
+        <li><a href="">TÉMOIGNAGE</a></li>  
+    </ul>
+    </div>
+    <img class="recherche" src="img/loupe_recherche.png" alt="loupe de recherche">
+</nav>
+
+
+   <main class="tout">
+
+
+  <div class="titre_carousel">
+    <h2 class="t">Eurovelo du haut de france</h2>
+    <p>Une expérience unique à la découverte de perles rares</p>
+  </div>
+
   <div class="swiper mySwiper">
-   
+
     <div class="swiper-wrapper">
 
-     
+
       <div class="swiper-slide" style="background: url(../img/im1.jpg) center/cover;"></div>
       <div class="swiper-slide" style="background: url(../img/im2.jpg) center/cover;"></div>
       <div class="swiper-slide" style="background: url(../img/im3.jpg) center/cover;"></div>
@@ -32,21 +55,23 @@
       <div class="swiper-slide" style="background: url(../img/im6.jpg) center/cover;"></div>
 
     </div>
-       <div class="swiper-pagination"></div>
-  
-   </div>
-  
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
   </div>
 
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="../carousel.js"></script>
+  <script src="js/script.js"></script>
 
+  </main>
 </body>
 
 </html>

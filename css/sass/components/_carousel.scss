@@ -1,31 +1,35 @@
-* {
+.tout {
   margin: 0;
   padding: 0;
   outline: none;
   box-sizing: border-box;
-}
-
-body {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  height: 100vh;
+  height: 95vh;
 
   .titre_carousel {
     position: absolute;
     z-index: 2;
-    top: 16%;
+    bottom: 5%;
     text-align: center;
-    width: 50%;
     min-width: 400px;
     left: 50%;
     transform: translateX(-50%);
-    text-transform: uppercase;
-    letter-spacing: .6rem;
-    mix-blend-mode: difference;
-    color: #000000;
-    font-size: 4.5rem;
-    text-shadow: 2px 2px 2px #333;
-    line-height: 6rem;
+    // text-transform: uppercase;
+    // letter-spacing: .6rem;
+    color: rgb(255, 255, 255);
+    font-size: 3.5rem;
+    // text-shadow: 2px 2px 2px #333;
+    // line-height: 6rem;
     user-select: none;
+    white-space: pre;
+    // background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: -147px;
+    // -webkit-text-stroke: 1px black;
+
+    .t{
+      margin-bottom: -170px;
+      
+    }
   }
 
   .swiper {
@@ -68,12 +72,12 @@ body {
     font-size: 10px;
     color: rgb(255, 255, 255);
     opacity: 0, 5;
-    background: rgba(0, 0, 0, 0.3);
+   background: rgba(0, 0, 0, 0.3);
   }
 
   .swiper-pagination-bullet-active {
     color: #fff;
-    background: #1a3ca8;
+    background: #5a6bff;
   }
 
 }
