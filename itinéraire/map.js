@@ -8,90 +8,97 @@ L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
     accessToken: 'pk.eyJ1Ijoic3RldmVudGlzb24iLCJhIjoiY2wxbHozeDRkMDFuOTNqcWpzNm5iMzhzayJ9.JrDbT9YA_SY9TYbtdoJzhw'
 }).addTo(map);
 
-var etapeUn = '/coordinate/calais-ardres.gpx' // URL to your GPX file or the GPX itself
-new L.GPX(etapeUn, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds())
-}).addTo(map);
+var customOptions =
+{
+    'className': 'popupCustom'
+}
 
-var etapeDeux = '/coordinate/ardres-watten.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeDeux, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
+const url = 'http://51.137.57.127:1337'
+const api = '/api/itineraires/'
 
-var etapeTrois = '/coordinate/watten-st-omer.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeTrois, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
 
-var etapeQuatre = '/coordinate/st-omer-aire-sur-la-lys.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeQuatre, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
+var liengpx = ['/coordinate/calais-ardres.gpx',
+    '/coordinate/ardres-watten.gpx',
+    '/coordinate/watten-st-omer.gpx',
+    '/coordinate/st-omer-aire-sur-la-lys.gpx',
+    '/coordinate/aire-sur-la-lys-st-venant.gpx',
+    '/coordinate/st-venant-bethune.gpx',
+    '/coordinate/bethunes-olhain.gpx',
+    '/coordinate/olhain-angres.gpx',
+    '/coordinate/angres-lens.gpx',
+    '/coordinate/lens-don.gpx',
+    '/coordinate/don-lille.gpx',
+    '/coordinate/lille-wattrelos.gpx',];
 
-var etapeCinq = '/coordinate/aire-sur-la-lys-st-venant.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeCinq, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeSix = '/coordinate/st-venant-bethune.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeSix, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeSept = '/coordinate/bethunes-olhain.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeSept, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeHuit = '/coordinate/olhain-angres.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeHuit, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeNeuf = '/coordinate/angres-lens.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeNeuf, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeDix = '/coordinate/lens-don.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeDix, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeOnze = '/coordinate/don-lille.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeOnze, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-var etapeDouze = '/coordinate/lille-wattrelos.gpx'; // URL to your GPX file or the GPX itself
-new L.GPX(etapeDouze, { async: true }).on('loaded', function (e) {
-    map.fitBounds(e.target.getBounds());
-}).addTo(map);
-
-const url = 'http://20.229.68.151:1337';
-
-fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
+fetch("http://51.137.57.127:1337/api/itineraires?populate=*")
     .then(function (res) {
         if (res.ok) {
             return res.json();
         }
     })
     .then(function (value) {
-        console.log(value);
 
+        value.data.sort(function (a, b) {
+            return a.id - b.id;
+        });
+
+        let n = 1
+
+        for (let modif of value.data) {
+            modif.id = n;
+            n++;
+        }
+
+        let i = 0;
+        let mapEtape = [];
+        let popup = [];
+
+        for (let etape of value.data) {
+            popup[i] = L.popup(customOptions);
+            mapEtape[i] = new L.GPX(liengpx[i], {
+                polyline_options: {
+                    color: '#e5b9d5',
+                    weight: 8,
+                    lineCap: 'round'
+                }
+            }).on('mouseover', function (e) {
+                this.setStyle({
+                    color: '#00246B'
+                })
+                popup[i - 1]
+                    .setLatLng(e.latlng)
+                    .setContent("<h3>" + etape.attributes.titre.toString() + "</h3>")
+                    .openOn(map);
+            }).on('mouseout', function (e) {
+                map.closePopup();
+                this.setStyle({
+                    color: '#e5b9d5'
+                })
+            }).on('loaded', function (e) {
+                map.fitBounds(e.target.getBounds());
+            }).on('click', function (e) {
+                document.location.href = 'map.html?detail=' + i;
+                console.log(i);
+            }).addTo(map);
+            i++;
+        }
+
+        let d = 1;
         let eltEtape = document.querySelector('div.etapes');
 
         for (let article of value.data) {
             let eltLink = document.createElement('a');
             eltEtape.appendChild(eltLink);
             eltLink.classList.add('lien_article');
-            eltLink.href = '#';
+            eltLink.href = "#";
+
+            d++;
 
             let eltArticle = document.createElement('article');
             eltLink.appendChild(eltArticle);
-            eltArticle.classList.add('itineraire')
+            eltArticle.classList.add('itineraire');
 
-            let eltDiv = document.createElement('div')
+            let eltDiv = document.createElement('div');
             eltArticle.appendChild(eltDiv);
             eltDiv.classList.add('box_photo');
 
@@ -126,6 +133,17 @@ fetch("http://20.229.68.151:1337/api/itineraires?populate=*")
             eltDivDeux.appendChild(eltDescription);
             eltDescription.classList.add('descriptif');
             eltDescription.innerText = article.attributes.description;
+
+            eltLink.addEventListener('mouseover', () => {
+                mapEtape[article.id - 1].setStyle({
+                    color: '#00246B'
+                });
+            });
+            eltLink.addEventListener('mouseout', () => {
+                mapEtape[article.id - 1].setStyle({
+                    color: '#e5b9d5'
+                });
+            });
         }
     }
     )
