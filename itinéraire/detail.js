@@ -190,6 +190,8 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
         eltDescription.classList.add('description')
         eltDescription.innerText = article.attributes.descriptif;
 
+        eltEtape.appendChild(document.querySelector('.elevation'));
+
         eltLink.addEventListener('mouseover', () => {
             mapEtape[article.id - 1].setStyle({
                 color: '#00246B'
