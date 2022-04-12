@@ -97,7 +97,15 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
                 document.location.href = 'detail.html?detail=' + etape.id;
             }).addTo(map);
             if (etape.id == numEtape) {
-                var el = L.control.elevation();
+                if (window.innerWidth <= 790) {
+                    var el = L.control.elevation({
+                        width: 0.8 * window.innerWidth
+                    });
+                } else{
+                    var el = L.control.elevation({
+                        width: 0.35 * window.innerWidth
+                    });
+                }
                 el.addTo(map);
                 var g = new L.GPX(liengpx[i], { async: true });
                 g.on("addline", function (e) {
@@ -107,6 +115,9 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
             }
             i++;
         }
+        window.addEventListener('resize',()=>{
+            location.reload()
+        })
 
         let eltEtape = document.querySelector('div.etapes');
 
