@@ -38,7 +38,11 @@ fetch("http://51.137.57.127:1337/api/ventes?populate=*")
             eltDivBot.classList.add('bot');
 
 
-
+            //background vente
+            let eltImage = document.createElement("img")
+            eltVenteArticle.appendChild(eltImage)
+            eltImage.src = url + article.attributes.backvente.data[0].attributes.url;
+            eltImage.classList.add('img_article');
 
             //Prix
             let eltPrix = document.createElement("p");
@@ -58,17 +62,9 @@ fetch("http://51.137.57.127:1337/api/ventes?populate=*")
             eltTitre.innerText = article.attributes.titre
             eltTitre.classList.add('titre_article');
 
-            //logo
-            let eltLogo = document.createElement("img")
-            eltDivBot.appendChild(eltLogo)
-            eltLogo.src = url + article.attributes.logo.data[0].attributes.url;
-            eltLogo.classList.add('logo_article');
 
-            //background vente
-            let eltImage = document.createElement("img")
-            eltVenteArticle.appendChild(eltImage)
-            eltImage.src = url + article.attributes.backvente.data[0].attributes.url;
-            eltImage.classList.add('img_article');
+
+
 
             // favoris
             let eltFavori = document.createElement("img")
@@ -76,6 +72,11 @@ fetch("http://51.137.57.127:1337/api/ventes?populate=*")
             eltFavori.src = url + article.attributes.favoris.data[0].attributes.url;
             eltFavori.classList.add('favori_article');
 
+            //logo
+            let eltLogo = document.createElement("img")
+            eltDivBot.appendChild(eltLogo)
+            eltLogo.src = url + article.attributes.logo.data[0].attributes.url;
+            eltLogo.classList.add('logo_article');
         }
     })
     .catch(function(err) {

@@ -12,11 +12,17 @@
 .prix_article,
 .duree_article,
 .titre_article,
-.logo_article {
+.logo_article,
+.favori_article {
     z-index: 2;
     position: relative;
     margin: 0;
     color: white;
+}
+
+.favori_article {
+    height: 50px;
+    width: 50px;
 }
 
 .titre_article {
@@ -37,11 +43,6 @@
     height: 33px;
 }
 
-.top {
-    display: flex;
-    justify-content: space-around;
-}
+.top {}
 
-.bot {
-    display: flex;
-}
+.bot {}
