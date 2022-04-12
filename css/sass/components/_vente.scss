@@ -1,0 +1,18 @@
+.img_article {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.prix_article {
+    z-index: 2;
+    position: relative;
+    background-color: yellow;
+    margin: 0;
+    .duree_article {
+        .titre_article {
+            .logo_article {}
+        }
+    }
+}
