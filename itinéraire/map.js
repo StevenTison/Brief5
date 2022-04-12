@@ -61,7 +61,7 @@ fetch("http://51.137.57.127:1337/api/itineraires?populate=*")
                     weight: 8,
                     lineCap: 'round'
                 }
-            }).on('mouseover', function (e) {
+            }).on('mouseover mousemove', function (e) {
                 this.setStyle({
                     color: '#00246B'
                 })
@@ -77,8 +77,7 @@ fetch("http://51.137.57.127:1337/api/itineraires?populate=*")
             }).on('loaded', function (e) {
                 map.fitBounds(e.target.getBounds());
             }).on('click', function (e) {
-                document.location.href = 'map.html?detail=' + i;
-                console.log(i);
+                document.location.href = 'detail.html?detail=' + etape.id;
             }).addTo(map);
             i++;
         }
@@ -90,7 +89,7 @@ fetch("http://51.137.57.127:1337/api/itineraires?populate=*")
             let eltLink = document.createElement('a');
             eltEtape.appendChild(eltLink);
             eltLink.classList.add('lien_article');
-            eltLink.href = "#";
+            eltLink.href = "detail.html?detail=" + article.id;
 
             d++;
 
