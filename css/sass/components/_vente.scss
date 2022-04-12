@@ -1,32 +1,38 @@
 .img_article {
     z-index: 1;
-    width: 470px;
-    height: 265px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     position: relative;
-    display: block;
-    top: -122px;
 }
 
 .prix_article,
 .duree_article,
 .titre_article,
-.logo_article {
+.logo_article,
+.favori_article {
     z-index: 2;
     position: relative;
     margin: 0;
     color: white;
 }
 
+.favori_article {
+    height: 50px;
+    width: 50px;
+}
+
+.titre_article {
+    text-align: center;
+}
+
 .ventes {
     position: absolute;
-    display: flex;
-    flex-direction: column;
 }
 
 .logo_article {
-    height: 24px;
-    width: 24px;
+    height: 50px;
+    width: 50px;
 }
 
 .prix_article,
@@ -34,6 +40,9 @@
     height: 33px;
 }
 
-.top {
+.vente_article {
+    width: 470px;
+    height: 265px;
     display: flex;
+    flex-direction: column;
 }
