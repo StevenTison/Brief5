@@ -2,6 +2,11 @@
 .wrapper_vente {
     height: 100%;
     width: 100%;
+    margin: 0;
+}
+.ventes {
+    width: 470px;
+    margin: auto;
 }
 .vente_article {
     width: 470px;
@@ -9,7 +14,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 1;
     margin: 0;
 }
 //image background
@@ -23,45 +27,52 @@
 // Prix + duree
 .top {
     z-index: 3;
-    position: absolute;
     display: flex;
+    justify-content: space-around;
+    width: 470px;
+    height: 265px;
+    position: absolute;
     color: white;
-    width: 100%;
+    font-size: 17px;
 }
 //titre
 .titre_article {
     z-index: 4;
     position: absolute;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 150px;
     color: white;
 }
 // Logo + favori
 .bot {
     z-index: 5;
     position: absolute;
-    margin-top: 205px;
+    margin-top: 220px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 470px;
+    height: 265px;
 }
 //Etoile
 .favori_article {
-    position: absolute;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 // logo euro vélo
 .logo_article {
-    position: absolute;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 //prix
 .prix_article {
-    position: absolute;
-}
+    background-color: rgba(255, 255, 0, 0.422);
+    height: fit-content;
+    }
 //duree
 .duree_article {
-    position: absolute;
-    
+    background-color: rgba(255, 255, 0, 0.288);
+    height: fit-content;
 }
 
 
