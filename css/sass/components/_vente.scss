@@ -1,0 +1,67 @@
+//contenant
+.wrapper_vente {
+    height: 100%;
+    width: 100%;
+}
+.vente_article {
+    width: 470px;
+    height: 265px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    margin: 0;
+}
+//image background
+.img_article {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+// Prix + duree
+.top {
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    color: white;
+    width: 100%;
+}
+//titre
+.titre_article {
+    z-index: 4;
+    position: absolute;
+    text-align: center;
+    margin-top: 100px;
+    color: white;
+}
+// Logo + favori
+.bot {
+    z-index: 5;
+    position: absolute;
+    margin-top: 205px;
+}
+//Etoile
+.favori_article {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}
+// logo euro vélo
+.logo_article {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}
+//prix
+.prix_article {
+    position: absolute;
+}
+//duree
+.duree_article {
+    position: absolute;
+    
+}
+
+
