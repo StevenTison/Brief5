@@ -5,6 +5,7 @@ footer {
     li {
         list-style-type: none;
         padding: 0;
+        border-radius: 50px;
     }
 
     h3 {
@@ -151,21 +152,33 @@ footer {
         .btn1 {
             width: 100px;
             font-size: 12px;
+            a{
+                text-align: center;
+             }
         }
 
         .btn2 {
             width: 100px;
             font-size: 12px;
+            a{
+                text-align: center;
+             }
         }
 
         .btn3 {
             width: 100px;
             font-size: 12px;
+            a{
+                text-align: center;
+             }
         }
 
         .btn4 {
             width: 100px;
             font-size: 12px;
+            a{
+               text-align: center;
+            }
         }
     }
 }
