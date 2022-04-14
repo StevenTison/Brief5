@@ -10,6 +10,7 @@
     padding-right: 30px;
     box-sizing: border-box;
     box-shadow: 3px 3px 10px;
+    z-index: 1101;
 
     .lien {
         display: flex;
@@ -23,13 +24,13 @@
         height: 10mm;
     }
 
-    .logo2{
+    .logo2 {
         margin: 10%;
         height: 10mm;
-        background:linear-gradient(128deg, #00246b,#003399);
+        background: linear-gradient(45deg, #00246b, #003399c2);
     }
-    
-    .les_logo{
+
+    .les_logo {
         display: flex;
         align-items: center;
     }
@@ -67,19 +68,19 @@
 
 
 @media screen and (max-width:800px) {
-    .active{
+    .active {
         display: flex;
         width: 100%;
     }
 
-    .lien{
+    .lien {
         display: flex;
         justify-content: center;
         width: 100%;
 
     }
 
-    .les_logo{
+    .les_logo {
         margin-left: 50px;
     }
 
@@ -98,13 +99,15 @@
         gap: 20px;
         opacity: 80%;
         transform: translateX(110%);
-        
+
     }
+
     .show-nav .liste {
         width: 100vw;
         transform: translateX(0%);
     }
-    .liste{
+
+    .liste {
         transform: translateX(0%);
         transition: all .4s ease-in-out;
     }
@@ -112,9 +115,10 @@
     .active ul {
         color: white;
         padding: 0;
+        justify-content: space-evenly;
     }
 
-    .active li{
+    .active li {
         padding: 0;
     }
 
@@ -123,6 +127,7 @@
         padding: 1rem;
         font-size: 1.6rem;
     }
+
     .active .burger {
         display: block;
         padding: 0;
@@ -173,10 +178,10 @@
     .show-nav .bar::after {
         transform: rotate(-45deg);
     }
-    
-    .recherche{
+
+    .recherche {
         margin-right: 30px;
-    
+
     }
 
 }
