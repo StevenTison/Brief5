@@ -20,29 +20,29 @@ fetch("http://51.137.57.127:1337/api/ventes?populate=*")
             n++;
         }
 
-        let eltVenteArticle = document.querySelector('div.ventes');
+        let eltVenteArticle = document.querySelector('div.swiper-wrapper');
         // contenant
         for (let article of value.data) {
-            let eltVentes = document.createElement('a');
+            let eltVentes = document.createElement('div');
             eltVenteArticle.appendChild(eltVentes);
-            eltVentes.classList.add('vente_article');
+            eltVentes.classList.add('swiper-slide');
             eltVentes.href = "#"
             console.log(value.data);
-            
+
             //top
             let eltDivTop = document.createElement('div.top')
-            eltVenteArticle.appendChild(eltDivTop);
+            eltVentes.appendChild(eltDivTop);
             eltDivTop.classList.add('top')
-            
+
             //bot
             let eltDivBot = document.createElement('div')
-            eltVenteArticle.appendChild(eltDivBot);
+            eltVentes.appendChild(eltDivBot);
             eltDivBot.classList.add('bot');
 
 
             //background vente
             let eltImage = document.createElement("img")
-            eltVenteArticle.appendChild(eltImage)
+            eltVentes.appendChild(eltImage)
             eltImage.src = url + article.attributes.backvente.data[0].attributes.url;
             eltImage.classList.add('img_article');
 
@@ -60,7 +60,7 @@ fetch("http://51.137.57.127:1337/api/ventes?populate=*")
 
             //Titre
             let eltTitre = document.createElement("h3");
-            eltVenteArticle.appendChild(eltTitre)
+            eltVentes.appendChild(eltTitre)
             eltTitre.innerText = article.attributes.titre
             eltTitre.classList.add('titre_article');
 
