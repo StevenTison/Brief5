@@ -3,14 +3,14 @@ const apiNews = "/api/news/";
 const img = "?populate=*";
 
 function printNews(data) {
-    let main = document.querySelector("main");
-    main.classList.add("boite")
-    let eltdiv = document.createElement("div")
-    main.appendChild(eltdiv)
+    let section = document.querySelector("section");
+    section.classList.add("boite")
+    let eltsection = document.createElement("section")
+    section.appendChild(eltsection)
     for (let article of data.data) {
         let eltarticle = document.createElement("article");
-        eltdiv.classList.add("grille")
-        eltdiv.appendChild(eltarticle);
+        eltsection.classList.add("grille")
+        eltsection.appendChild(eltarticle);
         let eltlink = document.createElement('a');
         eltarticle.appendChild(eltlink);
         eltlink.classList.add('lien_article');
