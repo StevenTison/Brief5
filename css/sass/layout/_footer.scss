@@ -1,7 +1,7 @@
 footer {
     display: grid;
     grid-template-columns: 1FR 1FR 1FR;
-    background: linear-gradient(rgba(0, 51, 153, 0), rgba(0, 36, 107, 0.6), rgba(0, 51, 153, 0.6));
+    background: linear-gradient(rgba(0, 51, 153, 0), rgba(0, 36, 107, 0.4), rgba(0, 51, 153, 0.5));
     li {
         list-style-type: none;
         padding: 0;
@@ -79,7 +79,7 @@ footer {
 
     .logo_footer2 {
         height: 13mm;
-        background: linear-gradient(128deg, #00246b,#003399);
+        background: linear-gradient(45deg, rgb(0, 36, 107), rgba(0, 51, 153, 0.761));;
     }
 
     .btn1 {
