@@ -8,6 +8,7 @@
         grid-template-columns: 1fr 1fr;
         box-sizing: border-box;
         gap: 35px;
+        width: 800px;
 
         article:hover {
             transform: scale(1.1);
@@ -57,6 +58,7 @@
        .grille{
            display: grid;
            grid-template-columns: 1fr;
+           width: 400px;
        }
    }
 }
