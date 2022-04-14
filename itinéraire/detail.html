@@ -17,8 +17,27 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="map_ksc">
+    <nav class="active nav_map">
+        <div class="lien">
+            <button class="burger">
+                <span class="bar"></span>
+            </button>
+            <div class="les_logo">
+                <img class="logo" src="../img/logo_nav.png" alt="logo">
+                <img class="logo2" src="../img/eurovelo_logo.svg" alt="logo">
+            </div>
+            <ul class="liste">
+                <li><a href="/index/index.html">ACCEUIL</a></li>
+                <li><a href="itineraire.html">L'ITINÉRAIRE</a></li>
+                <li><a href="/news/news.html">NEWS</a></li>
+                <li><a href="/témoignages/témoignages.html">TÉMOIGNAGE</a></li>
+            </ul>
+        </div>
+        <img class="recherche" src="/img/loupe_recherche.png" alt="loupe de recherche">
+    </nav>
     <main class="itineraire_page">
+        <img src="/img/switch.png" class="switch" alt="switch">
         <div id="details" class="etapes">
 
         </div>
@@ -27,6 +46,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="leaflet.elevation-0.0.4-d3v4.min.js"></script>
+    <script src="/js/script.js"></script>
     <script src="detail.js"></script>
 </body>
 

@@ -131,7 +131,7 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
         let eltFlecheContenu = document.createElement('a');
         eltRetour.appendChild(eltFlecheContenu);
         eltFlecheContenu.classList.add('fleche_contenu');
-        eltFlecheContenu.href = "#";
+        eltFlecheContenu.href = "itineraire.html";
 
         let eltFleche = document.createElement('img');
         eltFlecheContenu.appendChild(eltFleche);

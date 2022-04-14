@@ -62,8 +62,13 @@
                         }
 
                         p.descriptif {
-                            padding-left: 10px;
                             color: black;
+                            text-align: justify;
+                            margin: 0 5%;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                            overflow: hidden;
                         }
                     }
                 }
@@ -87,6 +92,19 @@
             }
         }
 
+        img.switch {
+            display: none;
+            width: 5%;
+            position: fixed;
+            bottom: 2%;
+            left: 2%;
+            padding: 10px;
+            background-color: #E3A7C8;
+            border: 1px solid black;
+            border-radius: 50%;
+            z-index: 1200;
+        }
+
         div#map {
             width: 60%;
             height: 91vh;
@@ -95,16 +113,76 @@
     }
 }
 
-@media screen and (max-width:800px) {
-    main.itineraire_page {
-        
-        div.etapes {
-            width: 100%;
-        }
+@media screen and (max-width:1040px) {
+    .map_ksc {
+        main.itineraire_page {
+            div.etapes {
+                width: 50%;
 
-        div#map {
-            width: 0%;
-            transform: scale(0);
+                a.lien_article {
+                    article.itineraire {
+                        div.box_contenu {
+                            h2 {
+                                font-size: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            div#map {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .map_ksc {
+        main.itineraire_page {
+            div.etapes {
+
+                a.lien_article {
+                    article.itineraire {
+                        div.box_contenu {
+                            h2 {
+                                font-size: 1.2em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:800px) {
+    .map_ksc {
+        main.itineraire_page {
+            div.etapes {
+                display: none;
+            }
+
+            img.switch {
+                display: block;
+            }
+
+            div#map {
+                width: 100%;
+            }
+        }
+    }
+
+    .map_ksc {
+        main.itineraire_page {
+            div.etapes.show-etapes {
+                display: block;
+                width: 100%;
+            }
+
+            div#map.show-map {
+                display: none;
+            }
         }
     }
 }
