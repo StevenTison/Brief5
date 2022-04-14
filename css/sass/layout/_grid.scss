@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 20px;
 
     .grille {
         display: grid;
         grid-template-columns: 1fr 1fr;
         box-sizing: border-box;
         gap: 35px;
-        width: 800px;
+        width: 900px;
 
         article:hover {
             transform: scale(1.1);
