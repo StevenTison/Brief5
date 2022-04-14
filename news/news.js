@@ -1,4 +1,4 @@
-const url = "http://51.137.57.127:1337";
+
 const apiNews = "/api/news/";
 const img = "?populate=*";
 
