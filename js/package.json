@@ -1,5 +1,5 @@
 {
-    "dependencies": {
+    "dependencies": "vente.html" {
         "parcel-bundler": "^1.6.1",
         "swiper": "latest"
     },
