@@ -101,7 +101,7 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
                     var el = L.control.elevation({
                         width: 0.8 * window.innerWidth
                     });
-                } else{
+                } else {
                     var el = L.control.elevation({
                         width: 0.35 * window.innerWidth
                     });
@@ -115,7 +115,7 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
             }
             i++;
         }
-        window.addEventListener('resize',()=>{
+        window.addEventListener('resize', () => {
             location.reload()
         })
 
@@ -219,3 +219,14 @@ fetch("http://51.137.57.127:1337/api/details?populate=*")
     .catch(function (err) {
 
     });
+
+function toggleMap() {
+    const change = document.querySelector('.switch');
+    const etapes = document.querySelector('.etapes');
+    const carte = document.querySelector('#map');
+    change.addEventListener('click', (e) => {
+        etapes.classList.toggle('show-etapes');
+        carte.classList.toggle('show-map');
+    });
+}
+toggleMap();
