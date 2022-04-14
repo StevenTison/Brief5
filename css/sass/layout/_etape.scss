@@ -1,0 +1,73 @@
+div#details {
+    background-color: #F4F4F4;
+    div.retour {
+        display: flex;
+        a.fleche_contenu {
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+
+            img.fleche {
+                width: 3vh;
+            }
+        }
+    }
+
+    h2.theme {
+        margin: 0;
+        height: 3vh;
+        text-align: center;
+        background-color: #E3A7C8;
+        color: white;
+    }
+
+    div.infos {
+        height: 4vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p.distance {}
+
+        img.infos_img {
+            width: 2vh;
+            padding-right: 30px;
+            padding-left: 10px;
+        }
+
+        p.temps {}
+
+        p.niveau {}
+    }
+
+    img.photo {
+        object-fit: cover;
+        width: 100%;
+        height: 30vh;
+    }
+
+    div.depart_arrivee {
+        display: flex;
+        justify-content: space-between;
+
+        p.depart {
+            margin-left: 5%;
+        }
+
+        p.arrivee {
+            margin-right: 5%;
+        }
+    }
+
+    p.description {
+        margin: 0;
+        padding: 5%;
+        text-align: justify;
+        background-color: white;
+    }
+    .elevation {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
