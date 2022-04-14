@@ -11,11 +11,11 @@ var swiper = new Swiper(".mySwiper", {
         },
     },
     autoplay: {
-        delay: 8000,
+        delay: 16000,
     },
 
 
-    loop: true,
+    loop: false,
     cssMode: true,
     pagination: {
         el: ".swiper-pagination",
