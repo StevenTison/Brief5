@@ -20,7 +20,7 @@ fetch("http://51.137.57.127:1337/api/ventes?populate=*")
             n++;
         }
 
-        let eltVenteArticle = document.querySelector('div.swiper-wrapper');
+        let eltVenteArticle = document.querySelector('div#main-swip.swiper-wrapper');
         // contenant
         for (let article of value.data) {
             let eltVentes = document.createElement('div');
