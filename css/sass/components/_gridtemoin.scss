@@ -1,3 +1,33 @@
+div.head {
+    position: relative;
+    padding-bottom: 40px;
+    img.terril {
+        width: 100%;
+        height: 100%;
+    }
+    p.head_texte {
+        position: absolute;
+        color: white;
+        font-size: 3em;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+h1.aventure {
+    text-align: center;
+    font-size: 4em;
+    margin: 3% 20%;
+    span.aventure_span {
+        color: #007C74;
+    }
+}
+h2.aventure_desc {
+    text-align: center;
+    font-size: 1.3em;
+    margin: 0 30%;
+    padding-bottom: 30px;
+}
 section.temoignages_avis {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
