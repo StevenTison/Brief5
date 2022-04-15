@@ -7,6 +7,21 @@ function printNews(data) {
     section.classList.add("boite")
     let eltsection = document.createElement("section")
     section.appendChild(eltsection)
+    
+
+    data.data.sort(function (a, b) {
+        return a.id - b.id;
+    });
+
+    let n = 1
+
+    for (let modif of data.data) {
+        modif.id = n;
+        n++;
+    }
+
+    
+  
     for (let article of data.data) {
         let eltarticle = document.createElement("article");
         eltsection.classList.add("grille")
@@ -15,20 +30,13 @@ function printNews(data) {
         eltarticle.appendChild(eltlink);
         eltlink.classList.add('lien_article');
         eltlink.innerText = article.attributes.titre
-        eltlink.href = "#";
-
-        
-      
-        // let titre = document.createElement("h1");
-        // titre.innerText = article.attributes.titre;
-        // eltarticle.appendChild(titre)
+        eltlink.href = ("/news/lien_news.html?articleID=" + article.id);
 
       
         let image = document.createElement("img")
         eltarticle.appendChild(image)
         image.setAttribute("src", url + article.attributes.illustration.data[0].attributes.formats.small.url);
-        eltarticle.appendChild(image);
-
+        
     }
 
 
