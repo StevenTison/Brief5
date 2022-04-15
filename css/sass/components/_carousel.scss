@@ -28,11 +28,11 @@
 
   }
 
-  .t{
+  .t {
     margin: 0%;
   }
 
-  .p{
+  .p {
     margin: 0 0 50px 0;
   }
 
@@ -92,4 +92,24 @@
   height: 100%;
   width: 100%;
   margin-top: 80px;
+}
+
+div.vente_background {
+  background-image: url(/terril.jpg);
+  background-size: cover;
+
+  p.vente_titre {
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0 20%;
+  }
+
+  p.vente_desc {
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 20%;
+  }
 }
