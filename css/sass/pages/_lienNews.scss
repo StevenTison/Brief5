@@ -4,6 +4,7 @@
   article{
       display: flex;
       flex-direction: column;
+      margin-top: 90px;
 
       h1{
           text-align: center;
@@ -16,7 +17,8 @@
       }
 
       img{
-         width: 800px;
+         width: 100%;
+         height: 600px;
         align-self: center;
       }
   }
