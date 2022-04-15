@@ -29,7 +29,7 @@ function printNews(data){
     titre.innerText = article.attributes.titre
 
     let illu = eltarticle.appendChild(document.createElement("img"))
-    illu.setAttribute("src", url + article.attributes.illustration.data[0].attributes.formats.small.url);
+    illu.setAttribute("src", url + article.attributes.illustration.data[0].attributes.formats.large.url);
 
     let contenu = eltarticle.appendChild(document.createElement("p"))
     contenu.innerText = article.attributes.contenu;
