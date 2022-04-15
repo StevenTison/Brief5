@@ -1,3 +1,4 @@
+const url = 'http://51.137.57.127:1337'
 const api = '/api/avis-temoignages/';
 
 fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
@@ -27,13 +28,24 @@ fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
             eltAvis.href = '#'
             console.log(value.data);
 
+            let eltDate = document.createElement('p')
+            eltAvis.appendChild(eltDate);
+            eltDate.innerText = article.attributes.date;
+            eltDate.classList.add('date_avis');
+
             let eltNetoile = document.createElement('div');
             eltAvis.appendChild(eltNetoile);
-            eltNetoile.classList.add('netoi');
+            eltNetoile.classList.add('nom_etoile');
 
             let eltLicorne = document.createElement('div');
             eltAvis.appendChild(eltLicorne);
-            eltLicorne.classList.add('licorne');
+            eltLicorne.classList.add('titre_text_desc');
+
+            
+
+            let eltDivAvis = document.createElement('div');
+            eltAvis.appendChild(eltDivAvis);
+            eltDivAvis.classList.add('avis_groupe');
 
             let eltBas = document.createElement('div');
             eltAvis.appendChild(eltBas);
@@ -44,34 +56,40 @@ fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
             eltNom.innerText = article.attributes.nom;
             eltNom.classList.add('nom_avis');
 
-            let eltDate = document.createElement('p')
-            eltAvis.appendChild(eltDate);
-            eltDate.innerText = article.attributes.date;
-            eltDate.classList.add('date_avis');
+            let eltEtoile = document.createElement('img');
+            eltNetoile.appendChild(eltEtoile);
+            eltEtoile.src = url + article.attributes.etoile.data[0].attributes.url;
+            eltEtoile.classList.add('etoile_avis');
+
+            
+
+            let eltDivSeparation = document.createElement('div');
+            eltNetoile.appendChild(eltDivSeparation);
+            eltDivSeparation.classList.add('lieux_separation');
 
             let eltLieux = document.createElement('p');
-            eltAvis.appendChild(eltLieux);
+            eltDivSeparation.appendChild(eltLieux);
             eltLieux.innerText = article.attributes.lieux;
             eltLieux.classList.add('lieux_avis');
 
             let eltSecurite = document.createElement('p');
-            eltAvis.appendChild(eltSecurite);
-            eltSecurite.innerText = article.attributes.securite;
+            eltDivAvis.appendChild(eltSecurite);
+            eltSecurite.innerHTML = article.attributes.securite;
             eltSecurite.classList.add('securite_avis');
 
             let eltBalisage = document.createElement('p');
-            eltAvis.appendChild(eltBalisage);
-            eltBalisage.innerText = article.attributes.balisage;
+            eltDivAvis.appendChild(eltBalisage);
+            eltBalisage.innerHTML = article.attributes.balisage;
             eltBalisage.classList.add('balisage_avis');
 
             let eltInteret = document.createElement('p');
-            eltAvis.appendChild(eltInteret);
-            eltInteret.innerText = article.attributes.interet;
+            eltDivAvis.appendChild(eltInteret);
+            eltInteret.innerHTML = article.attributes.interet;
             eltInteret.classList.add('interet_avis');
 
             let eltService = document.createElement('p');
-            eltAvis.appendChild(eltService);
-            eltService.innerText = article.attributes.services;
+            eltDivAvis.appendChild(eltService);
+            eltService.innerHTML = article.attributes.services;
             eltService.classList.add('service_avis');
 
             let eltTitre = document.createElement('h3');
@@ -94,10 +112,7 @@ fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
             eltCom.innerText = article.attributes.com;
             eltCom.classList.add('com_avis');
 
-            let eltEtoile = document.createElement('img');
-            eltNetoile.appendChild(eltEtoile);
-            eltEtoile.src = url + article.attributes.etoile.data[0].attributes.url;
-            eltEtoile.classList.add('etoile_avis');
+            
 
 
         }
