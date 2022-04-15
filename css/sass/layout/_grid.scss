@@ -13,7 +13,7 @@
 
         article:hover {
             transform: scale(1.1);
-        
+
             a {
                 transform: translateY(-60px);
                 transition: 0.5s;
@@ -37,7 +37,7 @@
                 right: 10%;
                 text-align: center;
                 background-color: rgba(0, 0, 0, 0.5);
-                
+
             }
 
             img {
@@ -51,15 +51,71 @@
 }
 
 
-@media screen and (max-width:800px){
-   .boite{
-       display: flex;
-       flex-direction: column;
+@media screen and (max-width:800px) {
+    .boite {
+        display: flex;
+        flex-direction: column;
 
-       .grille{
-           display: grid;
-           grid-template-columns: 1fr;
-           width: 400px;
-       }
-   }
+        .grille {
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 400px;
+        }
+    }
+}
+
+// Grille avis
+.avis {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+grid-template-columns: repeat(3, 1fr);
+    .Avis_article {
+         
+        width: 350px;
+        height: 500px;
+        border: 2px solid black;
+        padding: 2%;
+
+
+        .netoi {
+            display: flex;
+
+
+        }
+
+        .etoile_avis {
+            width: 150px;
+            height: 45px;
+
+        }
+
+        .note {
+            display: flex;
+        }
+
+        .securite_avis,
+        .balisage_avis,
+        .interet_avis,
+        .service_avis {
+            padding: 20px;
+
+        }
+
+        .bas {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .date_avis {
+            position: relative;
+            bottom: 316px;
+        }
+
+        .lieux_avis {
+            position: relative;
+            bottom: 212px;
+        }
+    }
 }
