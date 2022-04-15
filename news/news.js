@@ -27,15 +27,19 @@ function printNews(data) {
         eltsection.classList.add("grille")
         eltsection.appendChild(eltarticle);
         let eltlink = document.createElement('a');
-        eltarticle.appendChild(eltlink);
         eltlink.classList.add('lien_article');
-        eltlink.innerText = article.attributes.titre
+        let span = document.createElement("span");
+        span.innerText = article.attributes.titre;
+        span.classList.add("txt_lien")
+        eltlink.appendChild(span);
         eltlink.href = ("/news/lien_news.html?articleID=" + article.id);
 
       
         let image = document.createElement("img")
-        eltarticle.appendChild(image)
+        eltlink.appendChild(eltarticle)
         image.setAttribute("src", url + article.attributes.illustration.data[0].attributes.formats.small.url);
+        eltarticle.appendChild(image);
+        eltsection.appendChild(eltlink);
         
     }
 
