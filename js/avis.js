@@ -1,4 +1,3 @@
-const url = 'http://51.137.57.127:1337'
 const api = '/api/avis-temoignages/';
 
 fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
