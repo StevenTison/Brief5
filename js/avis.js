@@ -1,4 +1,3 @@
-const url = 'http://51.137.57.127:1337';
 const api = '/api/avis-temoignages/';
 
 fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
@@ -32,10 +31,6 @@ fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
             eltAvis.appendChild(eltNetoile);
             eltNetoile.classList.add('netoi');
 
-            let eltNote = document.createElement('div');
-            eltAvis.appendChild(eltNote);
-            eltNote.classList.add('note');
-
             let eltLicorne = document.createElement('div');
             eltAvis.appendChild(eltLicorne);
             eltLicorne.classList.add('licorne');
@@ -60,22 +55,22 @@ fetch("http://51.137.57.127:1337/api/avis-temoignages?populate=*")
             eltLieux.classList.add('lieux_avis');
 
             let eltSecurite = document.createElement('p');
-            eltNote.appendChild(eltSecurite);
+            eltAvis.appendChild(eltSecurite);
             eltSecurite.innerText = article.attributes.securite;
             eltSecurite.classList.add('securite_avis');
 
             let eltBalisage = document.createElement('p');
-            eltNote.appendChild(eltBalisage);
+            eltAvis.appendChild(eltBalisage);
             eltBalisage.innerText = article.attributes.balisage;
             eltBalisage.classList.add('balisage_avis');
 
             let eltInteret = document.createElement('p');
-            eltNote.appendChild(eltInteret);
+            eltAvis.appendChild(eltInteret);
             eltInteret.innerText = article.attributes.interet;
             eltInteret.classList.add('interet_avis');
 
             let eltService = document.createElement('p');
-            eltNote.appendChild(eltService);
+            eltAvis.appendChild(eltService);
             eltService.innerText = article.attributes.services;
             eltService.classList.add('service_avis');
 

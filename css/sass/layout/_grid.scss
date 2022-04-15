@@ -65,31 +65,37 @@
 }
 
 // Grille avis
-
+h3.avis_public_titre {
+    text-align: center;
+    font-size: 3em;
+    margin: 3% 20%;
+}
+p.avis_public {
+    text-align: center;
+    font-size: 1.3em;
+    margin: 0 30%;
+}
 .avis {
     display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 35px;
-
+    margin: 0 20%;
+    padding: 30px 0;
 
     .Avis_article {
         width: 100%;
-        height: 500px;
-        // border: 5px solid rgb(229, 185, 213);
+        height: 45vh;
         background-color: rgba(229, 185, 213, 0.26);
         padding: 1%;
         border-radius: 5%;
-
+        position: relative;
 
         .netoi {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            position: relative;
-            top: 50px;
-
+            position: absolute;
+            top: 20px;
         }
 
         .etoile_avis {
@@ -103,53 +109,70 @@
 
             font-size: 25px;
         }
-
-        .note {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            top: 40px;
+        
+        .securite_avis {
+            padding: 0 10px;
+            position: absolute;
+            top: 110px;
+            width: 20%;
+            text-align: center;
         }
-
-        .securite_avis,
-        .balisage_avis,
-        .interet_avis,
+        .balisage_avis {
+            padding: 0 10px;
+            position: absolute;
+            top: 110px;
+            width: 20%;
+            left: 70px;
+            text-align: center;
+        }
+        .interet_avis {
+            padding: 0 10px;
+            position: absolute;
+            top: 110px;
+            width: 20%;
+            left: 130px;
+            text-align: center;
+        }
         .service_avis {
-            padding: 0 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: cente;
-
+            padding: 0 10px;
+            position: absolute;
+            top: 110px;
+            width: 20%;
+            left: 190px;
+            text-align: center;
         }
-
         .bas {
-            position: relative;
+            position: absolute;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            top: 120px;
+            top: 380px;
+            width: 100%;
+            a {
+                color: black;
+            }
         }
 
         .date_avis {
-            position: relative;
-            bottom: 350px;
+            position: absolute;
+            top: 0;
         }
 
         .lieux_avis {
-            position: relative;
+            position: absolute;
             font-size: 16px;
-            width: 50%;
-            bottom: 190px;
+            width: 70%;
+            top: 80px;
             left: 5px;
             text-align: left;
             background-color: #c4669d;
             border-radius: 5%;
+            color: white;
 
         }
 
         .titre_avis {
-            padding: 0 0 20px 0;
+            margin-bottom: 0;
 
         }
 
@@ -157,8 +180,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            position: relative;
-            top: 40px;
+            position: absolute;
+            top: 150px;
 
         }
     }
@@ -167,9 +190,6 @@
 @media screen and (max-width:800px) {
 
     .avis {
-        display: grid;
-        justify-content: center;
-        align-content: center;
         grid-template-columns:  1fr 1fr;
         gap: 17px;
 
@@ -179,9 +199,6 @@
 @media screen and (max-width:400px) {
 
     .avis {
-        display: grid;
-        justify-content: center;
-        align-content: center;
         grid-template-columns: 1fr;
         gap: 17px;
 
