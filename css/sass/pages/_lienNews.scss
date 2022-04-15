@@ -1,0 +1,17 @@
+.lien_news{
+  display: flex;
+  justify-content: center;
+  article{
+      display: flex;
+      flex-direction: column;
+
+      h1{
+          text-align: center;
+      }
+
+      img{
+         width: 30%;
+        align-self: center;
+      }
+  }
+}
