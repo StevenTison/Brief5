@@ -1,0 +1,910 @@
+.lien_news {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+.lien_news article {
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+}
+.lien_news article h1 {
+  text-align: center;
+}
+.lien_news article p {
+  margin-right: 20%;
+  margin-left: 20%;
+  text-align: justify;
+}
+.lien_news article img {
+  width: 100%;
+  height: 600px;
+  align-self: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.active {
+  position: fixed;
+  height: 9vh;
+  display: flex;
+  background-color: white;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 10px;
+  z-index: 1101;
+}
+.active .lien {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-right: 30px;
+}
+.active .logo {
+  width: 50px;
+  height: 10mm;
+}
+.active .logo2 {
+  margin: 10%;
+  height: 10mm;
+  background: linear-gradient(45deg, #00246b, rgba(0, 51, 153, 0.7607843137));
+}
+.active .les_logo {
+  display: flex;
+  align-items: center;
+}
+.active ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  z-index: 1100;
+}
+.active li {
+  padding-left: 50px;
+}
+.active a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "arial";
+  font-weight: bold;
+}
+.active a:hover {
+  color: #00B9CA;
+}
+.active .burger {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .active {
+    display: flex;
+    width: 100%;
+  }
+
+  .lien {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+  }
+
+  .les_logo {
+    margin-left: 50px;
+  }
+
+  .liste {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: calc(100vh - 65px);
+    position: absolute;
+    top: 67px;
+    left: 0;
+    background: black;
+    gap: 20px;
+    opacity: 80%;
+    transform: translateX(110%);
+  }
+
+  .show-nav .liste {
+    width: 100vw;
+    transform: translateX(0%);
+  }
+
+  .liste {
+    transform: translateX(0%);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .active ul {
+    color: white;
+    padding: 0;
+    justify-content: space-evenly;
+  }
+
+  .active li {
+    padding: 0;
+  }
+
+  .liste > a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .active .burger {
+    display: block;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    transform: translateX(0%);
+    cursor: pointer;
+  }
+
+  .bar {
+    display: block;
+    width: 45px;
+    height: 4px;
+    border-radius: 3px;
+    background: black;
+  }
+
+  .bar::before,
+.bar::after {
+    content: "";
+    width: 45px;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    background: black;
+    border-radius: 3px;
+  }
+
+  .bar::before {
+    transform: translateY(-12px);
+  }
+
+  .bar::after {
+    transform: translateY(12px);
+  }
+
+  .show-nav .bar {
+    width: 0;
+    background: transparent;
+  }
+
+  .show-nav .bar::before {
+    transform: rotate(45deg);
+  }
+
+  .show-nav .bar::after {
+    transform: rotate(-45deg);
+  }
+
+  .recherche {
+    margin-right: 30px;
+  }
+}
+h1.news_titre {
+  text-align: center;
+  font-size: 2.3em;
+}
+
+p.news-desc {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.boite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.boite .grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+  gap: 35px;
+  width: 800px;
+}
+.boite .grille .lien_article {
+  position: relative;
+}
+.boite .grille .lien_article img {
+  width: 100%;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.boite .grille .lien_article .txt_lien {
+  position: absolute;
+  z-index: 2;
+  top: 75%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.boite .grille .lien_article:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.boite .grille .lien_article:hover .txt_lien {
+  transform: translateY(-60px);
+  transition: 0.5s;
+}
+.boite .grille article {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: height 0.5s, background-color 0.5s, transform 0.5s;
+}
+.boite .grille article a {
+  position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+  .boite {
+    display: flex;
+    flex-direction: column;
+  }
+  .boite .grille {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 400px;
+  }
+}
+h3.avis_public_titre {
+  text-align: center;
+  font-size: 3em;
+  margin: 3% 20%;
+}
+
+p.avis_public {
+  text-align: center;
+  font-size: 1.3em;
+  margin: 0 30%;
+}
+
+div.avis {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 35px;
+  margin: 0 auto;
+  padding: 30px 0;
+  width: 70%;
+}
+div.avis div.Avis_article {
+  background-color: rgba(227, 167, 200, 0.1843137255);
+  border-radius: 20px;
+}
+div.avis div.Avis_article .nom_etoile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 20px;
+}
+div.avis div.Avis_article .nom_etoile p.nom_avis {
+  width: 60%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+div.avis div.Avis_article .nom_etoile img.etoile_avis {
+  width: 40%;
+}
+div.avis div.Avis_article .nom_etoile div.lieux_separation {
+  border-radius: 10px;
+  margin: 0 5%;
+  width: 90%;
+  background-color: #E3A7C8;
+  color: white;
+}
+div.avis div.Avis_article .nom_etoile div.lieux_separation p.lieux_avis {
+  text-align: center;
+}
+div.avis div.Avis_article div.titre_text_desc {
+  padding: 0 20px;
+}
+div.avis div.Avis_article div.bas {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+div.avis div.Avis_article div.bas a {
+  font-size: 1.2em;
+  color: black;
+}
+div.avis div.Avis_article div.avis_groupe {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+div.avis div.Avis_article div.avis_groupe p.securite_avis {
+  text-align: center;
+}
+div.avis div.Avis_article div.avis_groupe p.balisage_avis {
+  text-align: center;
+}
+div.avis div.Avis_article div.avis_groupe p.interet_avis {
+  text-align: center;
+}
+div.avis div.Avis_article div.avis_groupe p.service_avis {
+  text-align: center;
+}
+div.avis div.Avis_article p.date_avis {
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 1040px) {
+  div.avis {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+  div.avis div.Avis_article div.nom_etoile div.lieux_separation p.lieux_avis {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 800px) {
+  div.avis {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  div.avis div.Avis_article div.nom_etoile div.lieux_separation p.lieux_avis {
+    font-size: 1.5em;
+  }
+}
+.wrapper_cacarousel {
+  position: relative;
+  height: 100%;
+}
+
+.wrapper_cacarousel {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0 10%;
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+.swiper {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide .img_article {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.favori_article {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.logo_article {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  bottom: 0;
+}
+
+.titre_article {
+  position: absolute;
+  color: white;
+  text-align: center;
+  top: 70%;
+  -webkit-text-stroke: 1px black;
+}
+
+.prix_article {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  background-color: rgba(255, 166, 0, 0.685);
+}
+
+.duree_article {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: rgba(255, 255, 255, 0.671);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  background: url("https://www.lavelodyssee.com/themes/fvt/images/qui-sommes-nous.jpg") no-repeat center center;
+  background-size: cover;
+}
+footer .logo_footer2 {
+  height: 13mm;
+  background: linear-gradient(45deg, rgb(0, 36, 107), rgba(0, 51, 153, 0.761));
+  width: 150px;
+}
+footer .text {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+footer .liste_lien {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+footer .liste_lien .btn1 {
+  background: white;
+  color: #007c74;
+  display: flex;
+  text-decoration: none;
+  width: 180px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px black;
+  border-radius: 50px;
+}
+footer .liste_lien .btn1:hover {
+  transform: scale(0.9);
+}
+footer .liste_lien .btn2 {
+  display: flex;
+  background: #007c74;
+  color: white;
+  text-decoration: none;
+  width: 180px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px black;
+  border-radius: 50px;
+}
+footer .liste_lien .btn2:hover {
+  transform: scale(0.9);
+}
+footer .liste_lien a {
+  color: inherit;
+  font-family: "arial";
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+  footer .liste_lien .btn1 {
+    width: 135px;
+    height: 30px;
+    font-size: 12px;
+  }
+  footer .liste_lien .btn1 a {
+    text-align: center;
+  }
+  footer .liste_lien .btn2 {
+    width: 135px;
+    height: 30px;
+    font-size: 12px;
+  }
+  footer .liste_lien .btn2 a {
+    text-align: center;
+  }
+}
+.map_ksc {
+  overflow: hidden;
+}
+.map_ksc .nav_map {
+  position: static;
+}
+.map_ksc main.itineraire_page {
+  display: flex;
+}
+.map_ksc main.itineraire_page div.etapes {
+  width: 40%;
+  height: 91vh;
+  overflow-y: auto;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article {
+  text-decoration: none;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire {
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  padding: 2px 0;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_photo {
+  width: 30%;
+  position: relative;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_photo img.photo_paysage {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_photo p.distance {
+  position: absolute;
+  top: 0;
+  padding: 5px 10px;
+  background-color: white;
+  color: black;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu {
+  width: 70%;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu h3 {
+  background-color: #E3A7C8;
+  padding: 4px;
+  padding-left: 10px;
+  color: white;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu p.level {
+  color: #3498db;
+  padding-left: 20px;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu h2 {
+  padding-left: 10px;
+  color: black;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu p.descriptif {
+  color: black;
+  text-align: justify;
+  margin: 0 5%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article:hover article.itineraire div.box_contenu {
+  background-color: #231F20;
+  border-radius: 3%;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article:hover article.itineraire div.box_contenu h2 {
+  color: white;
+}
+.map_ksc main.itineraire_page div.etapes a.lien_article:hover article.itineraire div.box_contenu p.descriptif {
+  color: white;
+}
+.map_ksc main.itineraire_page img.switch {
+  display: none;
+  width: 5%;
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  padding: 10px;
+  background-color: #E3A7C8;
+  border: 1px solid black;
+  border-radius: 50%;
+  z-index: 1200;
+}
+.map_ksc main.itineraire_page div#map {
+  width: 60%;
+  height: 91vh;
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 1040px) {
+  .map_ksc main.itineraire_page div.etapes {
+    width: 50%;
+  }
+  .map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu h2 {
+    font-size: 1em;
+  }
+  .map_ksc main.itineraire_page div#map {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .map_ksc main.itineraire_page div.etapes a.lien_article article.itineraire div.box_contenu h2 {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 800px) {
+  .map_ksc main.itineraire_page div.etapes {
+    display: none;
+  }
+  .map_ksc main.itineraire_page img.switch {
+    display: block;
+  }
+  .map_ksc main.itineraire_page div#map {
+    width: 100%;
+  }
+
+  .map_ksc main.itineraire_page div.etapes.show-etapes {
+    display: block;
+    width: 100%;
+  }
+  .map_ksc main.itineraire_page div#map.show-map {
+    display: none;
+  }
+}
+div#details {
+  background-color: #F4F4F4;
+}
+div#details div.retour {
+  display: flex;
+}
+div#details div.retour a.fleche_contenu {
+  display: flex;
+  align-items: center;
+  margin: 0 3%;
+}
+div#details div.retour a.fleche_contenu img.fleche {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 3vh;
+}
+div#details h2.theme {
+  margin: 0;
+  height: 3vh;
+  text-align: center;
+  background-color: #E3A7C8;
+  color: white;
+}
+div#details div.infos {
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#details div.infos img.infos_img {
+  width: 2vh;
+  padding-right: 30px;
+  padding-left: 10px;
+}
+div#details img.photo {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 30vh;
+}
+div#details div.depart_arrivee {
+  display: flex;
+  justify-content: space-between;
+}
+div#details div.depart_arrivee p.depart {
+  margin-left: 5%;
+}
+div#details div.depart_arrivee p.arrivee {
+  margin-right: 5%;
+}
+div#details p.description {
+  margin: 0;
+  padding: 5%;
+  text-align: justify;
+  background-color: white;
+}
+div#details .elevation {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+div.indexmain {
+  display: flex;
+}
+
+.tout {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  height: 95vh;
+}
+.tout .titre_carousel {
+  position: absolute;
+  z-index: 2;
+  bottom: 5%;
+  text-align: center;
+  min-width: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(255, 255, 255);
+  font-size: 2.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+.tout .t {
+  margin: 0%;
+}
+.tout .p {
+  margin: 0 0 50px 0;
+}
+.tout .swiper {
+  width: 100%;
+  height: 100%;
+}
+.tout .swiper-slide {
+  text-align: center;
+  font-size: 100px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tout .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: 100%;
+  max-height: 100%;
+}
+.tout .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 5px;
+  font-size: 10px;
+  color: rgb(255, 255, 255);
+  opacity: 0, 5;
+  background: rgba(0, 0, 0, 0.3);
+}
+.tout .swiper-pagination-bullet-active {
+  color: #fff;
+  background: #5a6bff;
+}
+
+.swiper-wrapper {
+  height: 100%;
+  width: 100%;
+  margin-top: 80px;
+}
+
+div.vente_background {
+  background-image: url(/terril.jpg);
+  background-size: cover;
+}
+div.vente_background p.vente_titre {
+  padding: 20px 0;
+  color: white;
+  text-align: center;
+  font-size: 2.5em;
+  margin: 0 20%;
+}
+div.vente_background p.vente_desc {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 0 20%;
+}
+
+div.head {
+  position: relative;
+  padding-bottom: 40px;
+}
+div.head img.terril {
+  width: 100%;
+  height: 100%;
+}
+div.head p.head_texte {
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h1.aventure {
+  text-align: center;
+  font-size: 4em;
+  margin: 3% 20%;
+}
+h1.aventure span.aventure_span {
+  color: #007C74;
+}
+
+h2.aventure_desc {
+  text-align: center;
+  font-size: 1.3em;
+  margin: 0 30%;
+  padding-bottom: 30px;
+}
+
+section.temoignages_avis {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 35px;
+  margin: 0 20%;
+}
+section.temoignages_avis div.temoin {
+  transition: height 0.5s, background-color 0.5s, transform 0.5s;
+  position: relative;
+}
+section.temoignages_avis div.temoin a.lien_temoin {
+  width: 100%;
+  height: 100%;
+}
+section.temoignages_avis div.temoin a.lien_temoin img.image_temoignages {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+section.temoignages_avis div.temoin a.lien_temoin p.titre_temoignages {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+section.temoignages_avis div.temoin:hover {
+  transform: scale(1.1);
+}
+section.temoignages_avis div.temoin:hover a.lien_temoin {
+  transform: translateY(-60px);
+  transition: 0.5s;
+}
+
+div.temoin:nth-child(1) {
+  grid-column: 1/4;
+}
+
+div.temoin:nth-child(3) {
+  grid-row: 2;
+  grid-column: 2/4;
+}
+
+@media screen and (max-width: 1040px) {
+  div.head p.head_texte {
+    top: 35%;
+  }
+
+  section.temoignages_avis div.temoin a.lien_temoin p.titre_temoignages {
+    font-size: 1.1em;
+  }
+}
+@media screen and (max-width: 800px) {
+  div.head p.head_texte {
+    top: 30%;
+  }
+
+  section.temoignages_avis div.temoin a.lien_temoin p.titre_temoignages {
+    font-size: 0.85em;
+  }
+}/*# sourceMappingURL=main.css.map */

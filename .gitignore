@@ -4,7 +4,3 @@
 node_modules
 dist
 .cache
-main.css
-main.css.map
-normalize.css
-normalize.css.map
