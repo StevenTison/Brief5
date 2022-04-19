@@ -1,7 +1,7 @@
 const url = 'http://51.137.57.127:1337';
 const api = '/api/ventes/';
 
-fetch("https://51.137.57.127:1337/api/ventes?populate=*")
+fetch("http://51.137.57.127:1337/api/ventes?populate=*")
     .then(function(res) {
         if (res.ok) {
             return res.json();
